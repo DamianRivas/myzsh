@@ -1,0 +1,11 @@
+#!/bin/sh
+
+command -v git >/dev/null 2>&1 || {
+	printf "Error: git is not installed\n"
+	exit 1
+}
+
+[ -d "$(git rev-parse --git-dir 2>/dev/null)" ] || {
+	echo "You are not in a Git repository"
+	exit 1
+}

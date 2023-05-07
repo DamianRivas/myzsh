@@ -1,9 +1,10 @@
 #!/bin/sh
 
-command -v git >/dev/null 2>&1 || {
-	printf "Error: git is not installed\n"
-	exit 1
-}
+SCRIPTPATH="$(
+	cd "$(dirname "$0")" || exit
+	pwd -P
+)"
+. "$SCRIPTPATH/../lib/gitcheck"
 
 # Get the current branch name
 current_branch=$(git branch --show-current)
