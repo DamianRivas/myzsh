@@ -1,0 +1,17 @@
+#!/bin/sh
+
+command -v git >/dev/null 2>&1 || {
+	printf "Error: git is not installed\n"
+	exit 1
+}
+
+# Get the current branch name
+current_branch=$(git branch --show-current)
+
+# Check if the local branch is behind the remote branch
+if [ "$(git rev-parse HEAD)" != "$(git rev-parse '@{u}')" ]; then
+	# Pull changes from the remote branch
+	git pull origin "$current_branch"
+else
+	echo "Already up to date."
+fi
