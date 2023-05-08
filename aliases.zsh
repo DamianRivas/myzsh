@@ -1,3 +1,4 @@
+alias bcat="batcat"
 alias ls="exa"
 alias l="exa -ls type --icons"
 alias ll="exa -las type --icons"
