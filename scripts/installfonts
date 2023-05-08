@@ -1,0 +1,9 @@
+#!/bin/sh
+
+FONTS_PATH="$HOME/.local/share/fonts"
+if [ ! -d "$FONTS_PATH" ]; then
+	mkdir -p "$FONTS_PATH"
+fi
+
+cd "$FONTS_PATH" && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Hack/Regular/HackNerdFontMono-Regular.ttf
+cd "$FONTS_PATH" && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf
